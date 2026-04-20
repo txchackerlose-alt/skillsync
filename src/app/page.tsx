@@ -7,6 +7,7 @@ import { z } from 'zod';
 import { Gem, Briefcase, Users, LayoutDashboard, Eye, EyeOff, Loader2 } from 'lucide-react';
 import { login } from '@/actions/auth';
 import { toast } from 'sonner';
+import Link from 'next/link';
 
 const loginSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
@@ -186,6 +187,15 @@ export default function LoginPage() {
               )}
             </button>
           </form>
+
+          <div className="mt-8 text-center">
+            <p className="text-sm text-brand-muted">
+              Don't have an account?{' '}
+              <Link href="/signup" className={`font-medium transition-colors hover:underline ${selectedRole === 'manager' ? 'text-brand-teal hover:text-brand-aqua' : 'text-brand-purple hover:text-brand-violet'}`}>
+                Sign up
+              </Link>
+            </p>
+          </div>
 
         </div>
       </div>
